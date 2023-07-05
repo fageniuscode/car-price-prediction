@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prédiction du prix d'un véhicule</title>
+</head>
+<body>
+    <h1>Prédiction du prix d'un véhicule</h1>
+
+    <form method="POST" action="/predict">
+        <label for="present_price">Prix actuel :</label>
+        <input type="text" id="present_price" name="present_price"><br>
+
+        <label for="kms_driven">Kilométrage :</label>
+        <input type="text" id="kms_driven" name="kms_driven"><br>
+
+        <label for="owner">Propriétaires précédents :</label>
+        <input type="text" id="owner" name="owner"><br>
+
+        <label for="years_old">Années :</label>
+        <input type="text" id="years_old" name="years_old"><br>
+
+        <label for="fuel_type_diesel">Carburant Diesel :</label>
+        <input type="checkbox" id="fuel_type_diesel" name="fuel_type_diesel" value="1"><br>
+
+        <label for="fuel_type_petrol">Carburant Essence :</label>
+        <input type="checkbox" id="fuel_type_petrol" name="fuel_type_petrol" value="1"><br>
+
+        <label for="seller_type_individual">Vendeur particulier :</label>
+        <input type="checkbox" id="seller_type_individual" name="seller_type_individual" value="1"><br>
+
+        <label for="transmission_manual">Transmission manuelle :</label>
+        <input type="checkbox" id="transmission_manual" name="transmission_manual" value="1"><br>
+
+        <input type="submit" value="Prédire le prix">
+    </form>
+
+    {% if prediction %}
+    <h2>Résultat de la prédiction :</h2>
+    <p>Le prix prédit du véhicule est : {{ prediction }}</p>
+    {% endif %}
+</body>
+</html>
