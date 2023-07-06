@@ -2,34 +2,119 @@
 <html>
 <head>
     <title>Prédiction du prix d'un véhicule</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        form {
+            width: 400px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f5f5f5;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"],
+        input[type="radio"] {
+            width: 100%;
+            padding: 5px;
+            margin-bottom: 10px;
+            border-radius: 3px;
+            border: 1px solid #ccc;
+        }
+
+        .radio-group {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .radio-group label {
+            margin-right: 10px;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        h2 {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        p {
+            text-align: center;
+            font-size: 18px;
+        }
+    </style>
 </head>
 <body>
     <h1>Prédiction du prix d'un véhicule</h1>
 
     <form method="POST" action="/predict">
-        <label for="present_price">Prix actuel :</label>
+        <label for="present_price">Prix du véhicule :</label>
         <input type="text" id="present_price" name="present_price"><br>
 
-        <label for="kms_driven">Kilométrage :</label>
+        <label for="kms_driven">Kilométrage parcouru par le véhicule :</label>
         <input type="text" id="kms_driven" name="kms_driven"><br>
 
-        <label for="owner">Propriétaires précédents :</label>
+        <label for="owner">Nombre de propriétaires précédents du véhicule :</label>
         <input type="text" id="owner" name="owner"><br>
 
-        <label for="years_old">Années :</label>
+        <label for="years_old">Âge du véhicule en années :</label>
         <input type="text" id="years_old" name="years_old"><br>
 
-        <label for="fuel_type_diesel">Carburant Diesel :</label>
-        <input type="checkbox" id="fuel_type_diesel" name="fuel_type_diesel" value="1"><br>
+        <div class="radio-group">
+            <label>Type de carburant du véhicule :</label>
+        </div>
+        <div class="radio-group">
+            <input type="radio" id="fuel_type_diesel" name="fuel_type" value="1">
+            <label for="fuel_type_diesel">Diesel</label>
+            <input type="radio" id="fuel_type_petrol" name="fuel_type" value="0">
+            <label for="fuel_type_petrol">Essence</label>
+        </div>
 
-        <label for="fuel_type_petrol">Carburant Essence :</label>
-        <input type="checkbox" id="fuel_type_petrol" name="fuel_type_petrol" value="1"><br>
+        <div class="radio-group">
+            <label>Vendeur :</label>
+        </div>
+        <div class="radio-group">
+            <input type="radio" id="seller_type_individual" name="seller_type" value="1">
+            <label for="seller_type_individual">Particulier</label>
+            <input type="radio" id="seller_type_dealer" name="seller_type" value="0">
+            <label for="seller_type_dealer">Concessionnaire</label>
+        </div>
 
-        <label for="seller_type_individual">Vendeur particulier :</label>
-        <input type="checkbox" id="seller_type_individual" name="seller_type_individual" value="1"><br>
-
-        <label for="transmission_manual">Transmission manuelle :</label>
-        <input type="checkbox" id="transmission_manual" name="transmission_manual" value="1"><br>
+        <div class="radio-group">
+            <label>Transmission :</label>
+        </div>
+        <div class="radio-group">
+            <input type="radio" id="transmission_manual" name="transmission" value="1">
+            <label for="transmission_manual">Manuelle</label>
+            <input type="radio" id="transmission_auto" name="transmission" value="0">
+            <label for="transmission_auto">Automatique</label>
+        </div>
 
         <input type="submit" value="Prédire le prix">
     </form>

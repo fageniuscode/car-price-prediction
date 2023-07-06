@@ -20,10 +20,10 @@ def predict():
     kms_driven = int(request.form.get('kms_driven'))
     owner = int(request.form.get('owner'))
     years_old = int(request.form.get('years_old'))
-    fuel_type_diesel = int(request.form.get('fuel_type_diesel'))
-    fuel_type_petrol = int(request.form.get('fuel_type_petrol'))
-    seller_type_individual = int(request.form.get('seller_type_individual'))
-    transmission_manual = int(request.form.get('transmission_manual'))
+    fuel_type_diesel = int(request.form.get('fuel_type_diesel')) if request.form.get('fuel_type_diesel') else 0
+    fuel_type_petrol = int(request.form.get('fuel_type_petrol')) if request.form.get('fuel_type_petrol') else 0
+    seller_type_individual = int(request.form.get('seller_type_individual')) if request.form.get('seller_type_individual') else 0
+    transmission_manual = int(request.form.get('transmission_manual')) if request.form.get('transmission_manual') else 0
 
     # Créer une observation avec les caractéristiques fournies
     single_obs = [[present_price, kms_driven, owner, years_old, fuel_type_diesel, fuel_type_petrol, seller_type_individual, transmission_manual]]
