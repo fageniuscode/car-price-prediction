@@ -1,4 +1,4 @@
-# car-price-prediction
+# Modèle de prédiction de prix d'un véhicule déployer avec Flask
 # Création de l'environnement
 ```bash
   python -m venv virt
